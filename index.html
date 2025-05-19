@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Proxy Test</title>
+</head>
+<body>
+  <h2>GitHub Pages Proxy Renderer</h2>
+  <input type="text" id="url" placeholder="https://www.facebook.com" style="width: 80%;">
+  <button onclick="load()">Render</button>
+
+  <iframe id="proxyFrame" style="width:100%; height:80vh; margin-top:10px;"></iframe>
+
+  <script>
+    function load() {
+      const inputUrl = document.getElementById('url').value;
+      const proxyFrame = document.getElementById('proxyFrame');
+      proxyFrame.src = 'https://corsproxy.io/?' + encodeURIComponent(inputUrl);
+    }
+  </script>
+</body>
+</html>
