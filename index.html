@@ -14,16 +14,17 @@
   function render() {
     let inputUrl = document.getElementById('urlInput').value.trim();
 
-    // Ensure it starts with http or https
+    // Ensure input starts with http or https
     if (!/^https?:\/\//i.test(inputUrl)) {
       inputUrl = 'https://' + inputUrl;
     }
 
     const iframe = document.getElementById('view');
-    // IMPORTANT: Do NOT encode or modify the input further
+    // DO NOT encode the input, pass full https://... string directly
     iframe.src = 'https://fbproxy.onrender.com/' + inputUrl;
   }
 </script>
+
 
 
 </body>
