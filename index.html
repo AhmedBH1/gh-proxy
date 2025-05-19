@@ -11,20 +11,20 @@
   <iframe id="view" style="width: 100%; height: 90vh; margin-top: 20px;"></iframe>
 
 <script>
-function render() {
-  let inputUrl = document.getElementById('urlInput').value.trim();
+  function render() {
+    let inputUrl = document.getElementById('urlInput').value.trim();
 
-  // Ensure input starts with http or https
-  if (!/^https?:\/\//i.test(inputUrl)) {
-    inputUrl = 'https://' + inputUrl;
+    // Ensure the URL starts with http:// or https://
+    if (!/^https?:\/\//i.test(inputUrl)) {
+      inputUrl = 'https://' + inputUrl;
+    }
+
+    const iframe = document.getElementById('view');
+    // Construct the proxy URL
+    iframe.src = 'https://fbproxy.onrender.com/' + inputUrl;
   }
-
-  const iframe = document.getElementById('view');
-  // ✅ Encode the full input URL to safely include it in the path
-  iframe.src = 'https://fbproxy.onrender.com/' + encodeURIComponent(inputUrl);
-}
-
 </script>
+
 
 
 
